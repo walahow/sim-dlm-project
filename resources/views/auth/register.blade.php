@@ -1,0 +1,250 @@
+{{-- <x-guest-layout>
+    <form method="POST" action="{{ route('register') }}">
+        @csrf
+        <!-- Name -->
+        <div>
+            <x-input-label for="username" :value="__('username')" />
+            <x-text-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required autofocus autocomplete="username" />
+            <x-input-error :messages="$errors->get('username')" class="mt-2" />
+        </div>
+        <div>
+            <x-input-label for="user_class" :value="__('kelas')" />
+            <x-text-input id="user_class" class="block mt-1 w-full" type="text" name="user_class" :value="old('user_class')" required autofocus autocomplete="user_class" placeholder="contoh: PSIK 23D"/>
+            <x-input-error :messages="$errors->get('user_class')" class="mt-2" />
+        </div>
+
+        <!-- Email Address -->
+        <div class="mt-4">
+            <x-input-label for="email" :value="__('Email')" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="email" />
+            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
+    
+
+        <div class="mt-4">
+            <x-input-label for="no_telp" :value="__('NO WA')" />
+            <x-text-input id="no_telp" class="block mt-1 w-full" type="number" name="no_telp" :value="old('no_telp')" required autocomplete="no_telp" />
+            <x-input-error :messages="$errors->get('no_telp')" class="mt-2" />
+        </div>
+
+        <!-- Password -->
+        <div class="mt-4">
+            <x-input-label for="password" :value="__('Password')" />
+
+            <x-text-input id="password" class="block mt-1 w-full"
+                            type="password"
+                            name="password"
+                            required autocomplete="new-password" />
+
+            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="mt-4">
+            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+
+            <x-text-input id="password_confirmation" class="block mt-1 w-full"
+                            type="password"
+                            name="password_confirmation" required autocomplete="new-password" />
+
+            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+        </div>
+
+        <div class="flex items-center justify-end mt-4">
+            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
+                {{ __('Already registered?') }}
+            </a>
+
+            <x-primary-button class="ms-4">
+                {{ __('Register') }}
+            </x-primary-button>
+        </div>
+    </form>
+
+</x-guest-layout> --}}
+
+<x-guest-layout>
+    
+    <!-- Session Status -->
+    <x-auth-session-status class="mb-4" :status="session('status')" />
+
+<section class="min-h-screen flex items-stretch text-white ">
+    <div class="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center" style="background-image: url({{ asset('storage/images/unimed.jpeg') }});">
+        <div class="absolute bg-black opacity-60 inset-0 z-0"></div>
+        <div class="w-full px-24 z-10">
+            <h1 class="text-5xl font-bold text-left tracking-wide">Welcome to SIM</h1>
+            <p class="text-3xl my-4">we help You To Manage Your Schedule & Room</p>
+        </div>
+        <div class="bottom-0 absolute p-4 text-center right-0 left-0 flex justify-center space-x-4">
+            <span>
+                <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+            </span>
+            <span>
+                <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+            </span>
+            <span>
+                <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </span>
+        </div>
+    </div>
+    <div class="lg:w-1/2 w-full flex items-center justify-center text-center md:px-16 px-0 z-0" style="background-color: #161616;">
+        <div class="absolute lg:hidden z-10 inset-0 bg-gray-500 bg-no-repeat bg-cover items-center" style="background-image: url({{ asset('storage/images/unimed.jpeg') }});">
+            <div class="absolute bg-black opacity-60 inset-0 z-0"></div>
+        </div>
+        <div class="w-full py-6 z-20">
+            <h1 class="my-3">
+              
+                <svg version="1.1" class=" inline-flex" viewBox="0 0 2000 2000" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+                <path transform="translate(569,426)" d="m0 0h51l29 1 32 3 46 9 29 8 35 12 29 12 29 14 21 12 19 12 16 11 10 8 8 7 5 9v11l-5 10-5 4h-6l-5-3h-6l-11-7-13-10-17-11-17-10-22-12-27-13-31-12-21-7-32-8-29-6-25-3h-19l-3-1v-2h-52l-3 3-18-1-7 2h-10l-9 2h-6l-16 4-28 6-43 14-24 10-22 10-23 13-14 8-24 16-19 14-13 11-10 9-8 7-15 14-13 14-7 8-12 14-12 16-7 10-10 15-13 22-15 29-9 19-11 29-9 29-9 38-4 27-1 13-2 4-1 26-1 6v26l2 30 3 10-1 5 6 35 8 32 10 32 11 28 14 30 10 18 13 22 11 16 16 21 11 13 7 8 9 11 20 20 11 9 7 7 17 13 16 12 18 12 25 15 27 14 23 10 17 7 28 9 25 7 31 6 34 4 14 2 63 1v-2l2-1h17l21-3 43-9 20-5 2-8 5-12 8-9 14-7 5-1h11l11 4 8 5 8 9 5 11 1 5v8l-2 10-9 14-10 7-8 3-6 1h-9l-9-2-5-3-2-3-5 1-9 5-14 5-15 4-26 5-13 2-35 3h-78l-38-4-40-8-32-9-27-9-25-10-25-12-24-12-20-12-27-18-16-12-13-11-14-12-12-11-25-25-9-11-11-13-14-19-12-17-11-17-15-26-8-16-9-19-11-27-11-33-7-25-8-38-4-30v-14l-2-5-1-9v-43l1-19 2-5v-13l3-21 3-20 8-35 8-27 9-27 13-31 15-30 17-28 9-14 8-11 14-19 9-11 8-10h2l2-4 9-10 1-2h2l2-4 11-11 11-9 14-13 11-9 18-14 33-22 24-14 25-13 33-14 28-10 24-7 23-6 21-4 14-3 12-1 3-1h15z" fill="#B62E99"/>
+                <path transform="translate(589,497)" d="m0 0h34l18 2 15 1 7 1 9 1 36 7 33 9 25 9 19 8 19 9 19 10 19 11 15 10 12 9 6 8v6l-6 9-5 4-4 1h-9l-14-5-16-9-13-8-22-12-17-8-20-8-16-6-16-5-29-7-19-4-13-1-4-1h-19l-2-4-13 1h-33l-4 3h-19l-2 1h-9l-10 2-6 1-32 7-29 9-22 9-16 7-19 10-13 7-15 9-17 12-13 10-16 13-14 14h-2l-1 3-6 5-7 8-9 9-8 10-11 14-10 14-9 14-10 18-12 23-12 28-11 34-7 30-6 37-1 9v11l-2 16v13l1 7 1 23 7 41 9 36 11 32 8 18 10 21 11 20 9 14 13 19 13 16 9 11 7 7 9 11 14 12 8 8 17 13 16 12 15 10 21 13 23 11 11 5 19 8 27 9 11 3 2-4 11-7 8-2h13l13 4 8 6 8 9 5 16v8l-4 12-6 10-8 7-11 5h-22l-15-8-6-7-4-12-32-9-17-6-26-11-28-14-22-13-22-15-16-12-14-12-11-9-26-26-9-11-8-9-15-20-11-16-8-13-13-22-15-31-10-26-7-21-7-25-7-34-3-27-1-4v-79l2-9 3-27 8-37 9-29 7-19 10-23 15-30 8-14 11-17 14-20 13-16 9-10 12-14 17-17 11-9 11-10 17-13 18-13 18-11 23-13 21-10 29-12 25-8 18-5 23-5 9-1 1-1 18-3h7l3-1 29-2z" fill="#B62E99"/>
+                <path transform="translate(275,792)" d="m0 0 6 1 16 8 41 21 16 9 2 2-1 6-9 26-9 36-3 17v35l3 32 9 40 10 29 9 20 12 24 16 24 10 13 8 10 12 13 12 12 8 7 10 8 17 12 12 8 10 7 20 12 15 7 29 9 27 6 15 2h65l3-1 13-1 6-2 30-5 33-9 27-10 18-8 16-8 20-11 27-18 14-10 5-1 2 2-1 4-8 11-9 10-10 10-13 10-17 12-14 10-19 12-16 9-32 15-29 10-13 3-24 3-6 2h-12l-4 1h-57l-2-1h-17l-20-4-26-5-25-7-23-8-20-8-29-14-25-15-16-11-14-11-13-11-21-21-5-4-7-8-9-10-12-16-13-19-14-24-10-21-8-20-7-22-7-29-6-37v-54l6-42 6-24 11-33 7-16z" fill="#80278B"/>
+                <path transform="translate(589,588)" d="m0 0 14 1h7l2 2h13l16 1 4-1 5 2 22 3 14 4h7l15 4 18 6 14 5 6 2 6 1 23 11 14 8 16 8 11 6 13 10 19 14 12 11 14 12 22 22 15 20 14 19 12 21 10 18 9 20 10 28 9 36 4 23 1 27 2 5v28l-2 4-1 26-6 26-7 29-10 26-3 2-15-8-23-11-25-11-10-5-5-4 1-13 7-23 5-19v-10l4-20v-27l-3-18v-12l-14-54-5-12-8-19-8-16-10-17-6-11-7-10-20-25-9-10-12-11-28-24-21-13-16-10-23-13-8-4-11-5-12-4-6 1-15-5-23-5h-46l-11-1-7 3-17-1-9 3h-10l-13 4-28 6-40 14-24 11-16 8-14 8-12 8-14 10-19 12h-5v-7l4-6 17-17 11-9 12-10 11-8 13-10 22-14 19-10 11-7 15-6 14-4 4-4 13-3h7l6-3 9 1 9-4 8-1h7l7-2h17l9 1z" fill="#191867"/>
+                <path transform="translate(703,721)" d="m0 0h12l20 6 12 8 8 10 4 9 2 8v21l-4 16-7 9-11 10-11 4-10 4-18 1-7 3-4 5-4 8-10 17-12 20-7 11-12 22-5 9v4l13 10 7 7 10 14 6 14 4 16v35l-3 14-6 13-7 12-14 15-16 10-19 8-16 4h-19l-16-4-15-6-4-2-4 1-14 14-7 9-9 9v14l-4 10-8 9-8 4-4 1h-11l-9-2-9-6-4-6-3-11v-11l4-11 9-10 17-5 10 4 9-10 4-5 5-5 7-10 4-2-3-5-9-13-5-11-4-18v-34l4-17 11-21 9-9 9-7-2-5-14-20-8-13-2-5h-11l-17-6-10-6-6-7-5-13-1-5v-11l4-12 6-9 7-6 13-7h18l14 7 9 8 5 8 2 7v23l-4 9-4 6 1 5 10 15 12 17 3 4 8-1 10-3 10-1 3-2h8l6 2 11 2 5 1 7-14 8-13 8-15 12-19 10-17 8-14 4-10v-6l-5-6-5-13v-26l4-12 6-10 10-9 10-5zm-112 210-7 3-4-1-1-1-7 1-16 7-13 7-12 12-8 13-6 14-3 21 3 19 5 12 7 11 12 12 13 8 10 6 8 2h31l14-5 11-6 11-9 10-12 8-16 4-13 1-6v-14l-6-18-9-15-7-9-8-7-16-9-14-6z" fill="#1A1867"/>
+                <path transform="translate(569,426)" d="m0 0h51l29 1 32 3 46 9 29 8 35 12 29 12 29 14 21 12 19 12 16 11 10 8 8 7 5 9v11l-5 10-5 4h-6l-5-3h-6l-11-7-13-10-17-11-17-10-22-12-27-13-31-12-21-7-32-8-29-6-25-3h-19l-3-1v-2h-52l-3 3-18-1-7 2h-10l-9 2h-6l-16 4-28 6-43 14-24 10-22 10-23 13-14 8-24 16-19 14-13 11-10 9-8 7-15 14-13 14-7 8-12 14-18 24h-2l-2-28v-16h-6v-5l2-6 9-10 1-2h2l2-4 9-10 1-2h2l2-4 11-11 11-9 14-13 11-9 18-14 33-22 24-14 25-13 33-14 28-10 24-7 23-6 21-4 14-3 12-1 3-1h15z" fill="#1A1867"/>
+                <path transform="translate(589,497)" d="m0 0h34l18 2 15 1 7 1 9 1 36 7 33 9 25 9 19 8 19 9 19 10 19 11 15 10 12 9 6 8v6l-6 9-5 4-4 1h-9l-14-5-16-9-13-8-22-12-17-8-20-8-16-6-16-5-29-7-19-4-13-1-4-1h-19l-2-4-13 1h-33l-4 3h-19l-2 1h-9l-10 2-6 1-32 7-29 9-22 9-16 7-19 10-13 7-15 9-17 12-13 10-16 13-14 14h-2l-1 3-6 5-7 8-9 9-8 10-11 14-10 14-9 14-1 2-3 1-5 9-4 2-2 7-4 2-2 2-2-1v2h-2l-1-5 1-9-2-4 2-1-1-4 1-10-1-4-3 1h-3l-5 1-1-3 12-19 11-16 9-12 9-11 9-10 12-14 17-17 11-9 11-10 17-13 18-13 18-11 23-13 21-10 29-12 25-8 18-5 23-5 9-1 1-1 18-3h7l3-1 29-2z" fill="#1A1868"/>
+                <path transform="translate(210,614)" d="m0 0 2 2-1 5 5 1 1 2v29l2 1-1 1 1 13-10 15-13 22-15 29-9 19-11 29-9 29-9 38-4 27-1 13-2 4-1 26-1 6v26l2 30 3 10-1 5 6 35 8 32 10 32 11 28 3 6v4l-5-1-2-7-4-2-3-5v3l-5-1 1-3h-2v-2l-5-1-2-6h-4l-3-8-3-3-2-4v-4l-4-1-1-4-4-2-2-12-3-5-1-7-1-4-2-1 1-2-2-1-1-11-2-4-2-10 1-3-2-1-2-12-1-7-2-6 1-4-3-17v-15l-1-4 1-3v-46l2-14 1-1 4-26 4-13 1-3h2v-6l1-2h-2l-1-5 3-3 4-1 1-4-3-1h2v-4l-5-2 1-2 3 1 1-4h-2v-7l2-6 2-3v-7l1-3-3-1 3-3 2-1-1-3h2v-5l-5-3 2-1v-2h-3l1-7 6-17 11-26 15-30 17-28 9-14 8-11 14-19z" fill="#A02D95"/>
+                <path transform="translate(236,714)" d="m0 0 4 1 2 5-1 13v4h1l-1 15h2v-2h2l2-2 4-2 2-6 5-5 4-7 2 1-15 28-9 19-8 19-11 34-7 30-6 37-1 9v11l-2 16v13l1 7 1 23 7 41 9 36 11 32 8 18 4 8v4l-4-2v-2l-5-1v3l-7 1-2-1v2l-4 1-4-4v-2l-2-1-2-4-4-2-1-6h-2v-3l-2-1-4-8-3-8-2-4v-3h-2l-3-9v-4h-2l-2-7-3-1v-2l2-1-2-3v-7h-2l-4-7-2-2-1-9h-2l-3-17-2-20-1-4v-79l2-9 3-27 8-37 9-29 7-19 10-23 15-30 4-7z" fill="#751A8C"/>
+                <path transform="translate(275,792)" d="m0 0 6 1 16 8 41 21 16 9 2 2-1 6-9 26-9 36-3 17v35l2 25v6l-1 2h-2l1 10-2 2-7 2-5 10-2 7h-8l-2 2-5-2-4-5-5-4-5-6-7-14-4-1-6-14-4-14-3-14v-5l-1-1-1-11 2-30 1-12 1-2 1-20 1-4h2l-1-10v-19l-1-6h2v-2h2l-2-9 1-5 2-5h-2v-6z" fill="#33116F"/>
+                <path transform="translate(1282,1251)" d="m0 0h106l20 2 15 5 8 6 6 8 3 8v14l-4 11-9 10-6 4-18 5 7 8 19 19 7 8 11 11v2h-34l-9-6-8-8-7-8-9-10-7-8-8-5-13-1h-54l-1 46h-33l1-120zm16 22-2 2 1 28h87l10-2 9-4 5-5v-7l-5-6-8-4-6-1z" fill="#B62E99"/>
+                <path transform="translate(271,800)" d="m0 0h2l-1 4h2v5h-2v8l1 1v5h-2v2h-2l2 6v29h-2l-1 24-2 9v10l-2 28 1 8 1 2 1 9 2 9 4 14 5 12v2l5 1 8 16 5 5 7 6v2l5 1 2-2 8 1 2-9 5-8 8-4-1-6 1-4h2l1-2 2 5 8 36 10 29 8 18v6l1 1v7l-5 4-3 1-2 5-18 6-2-1v2l-5-1-5-2v-2l-8-1-5-4-5-3-8-7-1-4-3-1v-3l-4-1v-3h-2l-3-5-3-6-5-5-6-12-2-6v-2l-2-1-2-5-6-18-3-3v-6h-2l-2-5-4-3-5-32v-54l6-42 6-24 11-33z" fill="#55197B"/>
+                <path transform="translate(872,1164)" d="m0 0 4 1 1 4-9 12-9 10-10 10-13 10-17 12-14 10-19 12-16 9-32 15-29 10-13 3-24 3-6 2h-12l-4 1h-57l-1-2-6-3h-6v-3l-5-1-1-3-6-1-12-8-5-4-4-5-3-8-3-2h2l-1-8 1-2-2-1 8 1 21 5 13 3 15 2h65l3-1 13-1 6-2 30-5 33-9 27-10 18-8 16-8 20-11 27-18 14-10z" fill="#1B1868"/>
+                <path transform="translate(1551,1250)" d="m0 0h29l5 3 6 7 14 22 15 24 15 22 12 17 14 20 3 5v2l-3 1h-25l-6-4-10-16-7-1-26 1-83 1-7 11-7 8-4 1h-13l-12-1-1-4 13-16 29-44 32-48 7-8zm10 17-6 8-6 11-10 15-13 18-4 7v2l2 1h77l2-1-2-5-10-14-12-18-14-23z" fill="#B62E99"/>
+                <path transform="translate(1054,1251)" d="m0 0 32 1 1 70 3 11 6 9 10 6 9 3 24 3h12l22-3 9-3 8-6 4-5 3-13 1-8v-60l1-5 31 1 2 2v19l-1 37-2 19-3 13-5 9-8 9-10 6-18 6-14 3-17 2h-27l-21-3-17-6-12-7-10-9-7-10-5-12-1-8-1-70z" fill="#B62E99"/>
+                <path transform="translate(512,950)" d="m0 0 3 2 1 3 2 1 1-2 1 6-3 11 5 6-4 9-3 21 3 19 5 12 7 11 11 11 13 8 10 6 8 2h33l3 2-1 3h-9l-6 5-2-1-2 2 4 1h6v2h5l-2 4-6 2-2-1v2l-3 1h-11l-16-4-15-6-4-2-4 1-14 14-7 9-9 9v14l-4 10-8 9-8 4-4 1h-11l-9-2-9-6-4-6-3-11v-11l4-11 9-10 17-5 10 4 9-10 4-5 5-5 7-10 4-2-3-5-9-13-5-11-4-18v-34l4-17z" fill="#361270"/>
+                <path transform="translate(140,1138)" d="m0 0 4 4 1 8h2l1 3 3 1v2l4 2-1 6 2 5 5-1 1 2h-3v2l5-1v3l3 1v3l3 1 1 4h2l2 7h3l2 8 3 1 1 2 5 5v4h2l5 5 5 4 1 4 2 1 3 5 5 3 7 9 4 6 6 5 5 5 3 4v3l4 2 5 5 3 5v2l4 2 1 3h2l5 5 1 4h3v2h2v2l4 1 4 5 7 5 5 5v2l5 2v2l3 1 6 4 5 6 3 1v3l2 1 6 5v2h2v2h5v2l2 1 5 4 1 2 6 1 5 5 8 3 1 1 2-1v2l4 2 13 7 9 6 8 3v2h5l8 4 7 4 24 12 13 5 2 2 9 2v2l3-1v2l4 1 7 1 6 4 8 2h6l10 4 9 1 10 6 9 1 6 2 5 3v3l2 1-13-1-40-8-32-9-27-9-25-10-25-12-24-12-20-12-27-18-16-12-13-11-14-12-12-11-25-25-9-11-11-13-14-19-12-17-11-17-15-26-8-16-9-19-1-5z" fill="#CC38A5"/>
+                <path transform="translate(852,1250)" d="m0 0 28 1 5 2 8 7 7 8 12 13 7 8 14 15 6 6 4-2 16-17 10-11 7-8 9-10 11-11h32l-6 7-20 20-7 8-12 13-14 15-11 14-2 4-1 39-1 1h-31v-43l-12-13-7-8-14-15-11-12-11-11-7-8-9-9z" fill="#B62E99"/>
+                <path transform="translate(327,508)" d="m0 0m-1 1m-2 1h2l-1 6-2 2-4 7-1 8-3 10v5 2l2 3v2l2 1v2h2l-1 4-16 13-11 10-8 7-15 14-13 14-7 8-12 14-18 24h-2l-2-28v-16h-6v-5l2-6 9-10 1-2h2l2-4 9-10 1-2h2l2-4 11-11 11-9 14-13 11-9 18-14z" fill="#34116F"/>
+                <path transform="translate(277,1077)" d="m0 0 5 5 3 9 9 6v3l5 2 1 5 5 4 2 2v3l3 1 1 3 3 2v2h3l1 3 3 2 3 5h3l4 4v4l5 1 5 3 5 4v2l5 2 8 6v3l4 2 1 3h3v2l6 2 6 5 3 1 3 3 9 5 4 3v2l14 7 1 3 6 2 12 9 10 9 5 3 5 5 8 6 2 1v2l6 2 3 3 5 2 1 3 4 1v2l3-1 8 4 3 2v2l9 2 5 3 7 3 1 2h6l5 2v2h5l2 4 5-1 2 2 2-1v3l5 1 2 2-13-2-31-8-26-9-20-8-29-14-25-15-16-11-14-11-13-11-21-21-5-4-7-8-9-10-12-16-13-19-14-24-6-13z" fill="#A02D95"/>
+                <path transform="translate(777,1353)" d="m0 0h11l11 4 8 5 8 9 5 11 1 5v8l-2 10-9 14-10 7-8 3-6 1h-9l-9-2-5-3-2-3-14-2-5-5-6-4v-2h-2v-2l-3-1-1-4 3-3h2v-2h2l1-4 5-3 2-8 5-12 8-9 14-7z" fill="#81288B"/>
+                <path transform="translate(187,808)" d="m0 0 5 2 1 6-3 6h-4l2 5 1 4 1 2v10l1 4-3 1-1 10-2 9-1 13-1 5v23l-2 5 1 4v4 4h-2l1 9v39l2 2 2 13-1 14h2l2 6 1 7-1 2h3v5h2l1 7 2 3 2 10 3 4 3-3 7 2 1 2 4 1v2h2l1-3 2-2 12 36 8 19 5 10v4l-4-2v-2l-5-1v3l-7 1-2-1v2l-4 1-4-4v-2l-2-1-2-4-4-2-1-6h-2v-3l-2-1-4-8-3-8-2-4v-3h-2l-3-9v-4h-2l-2-7-3-1v-2l2-1-2-3v-7h-2l-4-7-2-2-1-9h-2l-3-17-2-20-1-4v-79l2-9 3-27 8-37z" fill="#81288B"/>
+                <path transform="translate(541,1237)" d="m0 0 8 1 21 5 13 3 15 2h65l8-1 5 1-4 3-3 3h-5v2h-2l2 9-1 8 1 3 9 3 7-1 7 4v1l-15 2-6 2h-12l-4 1h-57l-1-2-6-3h-6v-3l-5-1-1-3-6-1-12-8-5-4-4-5-3-8-3-2h2l-1-8 1-2z" fill="#361270"/>
+                <path transform="translate(299,623)" d="m0 0h5v3l2 1v14l-3 12v8l5 5-1 5-9 10-8 11-8 10-9 13-7 11-1 2-3 1-5 9-4 2-2 7-4 2-2 2-2-1v2h-2l-1-5 1-9-2-4 2-1-1-4 1-10-1-4-3 1h-3l-5 1-1-3 12-19 11-16 9-12 9-11 9-10 12-14z" fill="#34116F"/>
+                <path transform="translate(511,1075)" d="m0 0 1 3 1 4 1-2 2 2 1 3-1 1 2 5 2 1-1 3 6-2 8-3 3 1-10 10-7 9-9 9v14l-4 10-8 9-8 4-4 1h-11l-9-2-9-6-4-6-3-11v-11l4-11 9-10 17-5 10 4 9-10 4-5 5-5z" fill="#56197B"/>
+                <path transform="translate(210,614)" d="m0 0 2 2-1 5 5 1 1 2v29l2 1-1 1 1 13-10 15-13 22-15 29-9 19-4 10-4 2v-6l4-9-1-2 2-1v-11l-3-2 1-2 2-21 1-7 1-9 2-4-1-6-2-6 2-4h-2v-2l3-3v-5l10-15 8-11 14-19z" fill="#81278B"/>
+                <path transform="translate(735,1392)" d="m0 0 4 1-2 4h-2v2l-4 3 1 4 2 1v2h2v2l4 2 6 4 1 2 11 2-5 4-8 4-22 7-31 6h-16l-4-2-1-3-6-2-9-6v-2l-4-2-1-2-6-2-4-3-6-1v-2h-2v-2l-9-1v-1l16-1v-2l2-1h17l21-3 43-9z" fill="#A02D95"/>
+                <path transform="translate(223,1149)" d="m0 0 4 2v3h2l3 7 2 6 3 1 3 4v2h2l1 3 4 4 3-1 1 4 4 2 2 4-4-2-1-1-1 3 4 1 3 1 2 5 2 1 1 6 1 2 6 2 2 1 1 3 4 4h2l2 4 6 5 1 4 4 1 3 3v3l4 1 4 2 4 4 4 2v3l5 2 5 3 2 5 3-1 1 3 5 2 11 8 4 2 1 3 7 4 4 2 5 5v2l5 2 5 4v3l5 1 8 6 3 1v2l5 2 2 1v2h3v2l5 2 9 5v2l6 2 8 5h3l4 3v3l4-2 3 2v2h5l4 2 2 3 2-1v2h4v2l9 2 3 1 5 3 2-1 13 5 1 2h4l6 3v3h5l1 3 7 7v3l3 1 5 7 2 1v-2h2v2l2 1 15 1v1h-22l-15-8-6-7-4-12-32-9-17-6-26-11-28-14-22-13-22-15-16-12-14-12-11-9-26-26-9-11-8-9-15-20-11-16-8-13-9-15z" fill="#CC38A5"/>
+                <path transform="translate(526,1312)" d="m0 0h13l13 4 8 6 8 9 5 16v8l-4 12-5 8-3-2-8-1h-3-5l-1-1h-7l-5-4-6-4-8-6-3-5-1-6h-2l-3-3 1-8-2 1v-2l-5-1 1-2h3v-4l3-3-2-2h2l1-4 7-4z" fill="#A02D95"/>
+                <path transform="translate(175,1017)" d="m0 0h2l2 9 5 6v3h2l1 7 2 4h-3v2l4 1 1 1v6h2l3 10v3h2l5 11 3 8 3 5v3h2l1 6 4 1 3 3 2 5 1 3h6v-2h9v-3l5 1 4 4 1-2 8 16 8 15 9 14 13 19-1 2-8-4-5-2-1 3-4-2-4-5-6 2-4-6-2-1v-3h-2v-2h-3l-1-3-9-5-2-5-5-4v-2h-2l-4-7h-3l1-5-3-5-3-2v-2l-3-1-1-7-3-1-1-6h-2l-3-9-5-1-9-27-7-25z" fill="#A12D95"/>
+                <path transform="translate(236,714)" d="m0 0 4 1 2 5-1 13v4h1l-1 15h2v-2h2l2-2 4-2 2-6 5-5 4-7 2 1-15 28-9 19-8 19-9 28h-2l-1-5-3 3h-2v2l-4 2-2-1 1-8 1-1 2-31v-19l-2-7-1-6 1-1-1-2 13-26 4-7z" fill="#56197B"/>
+                <path transform="translate(541,1237)" d="m0 0 8 1 21 5 13 3 15 2 5 1-1 7v2h-2v10l2 8 4 1 2 1v2l6 1 1 2 5-1v2h9l10 2 11 1v1h-57l-1-2-6-3h-6v-3l-5-1-1-3-6-1-12-8-5-4-4-5-3-8-3-2h2l-1-8 1-2z" fill="#55187B"/>
+                <path transform="translate(301,1122)" d="m0 0h3l6 7v2h3v2h4l3 8 4 3 4 2 2 6 6 2 3 5h2 2v2l2 1v2l3 3 4-1v5l7 2 4 2v2h2l1 3 5 3 1 3 5 5 5 3 4 2 1 2 3 1v2l3 1 4 5 2 1v2l7 2 4 1v2h2l5 5 4 2v2l6 1 2 1v2l4 1 3 1 2 3 3 1v2l10 5v2l6 2 1 2 4 1v2l4-1 4 4v2l4-1 2 3 6 2 5 2 4 2 11 5v2l-10-3-12-4-20-8-29-14-25-15-16-11-14-11-13-11-21-21-5-4-7-8-9-10-12-16-8-11z" fill="#B62E99"/>
+                <path transform="translate(242,577)" d="m0 0 5 2-3 2 1 2h-2v6l2 1-3 8-1 6 1 16 2 4 3-1 3-3h3v-2l5-4 2 3-12 13-9 11-13 17-6 8h-2l-2-28v-16h-6v-5l2-6 9-10 1-2h2l2-4 9-10 1-2h2l2-4z" fill="#56197C"/>
+                <path transform="translate(1477,1422)" d="m0 0h9l8 4 5 6 1 8-3 5-5 5-3 4 7 9v6l-6 10-5 4-3 1h-9l2-4 5-5 3-6-1-7-5-6-7-3-3 14-7 13-3 3-3 1h-8l1-5 4-10 5-20 6-15 1-4-3-1-1-3h4l2 2 5-4zm-4 7-3 4-2 10v5h11l6-4 2-3v-6l-5-6z" fill="#391471"/>
+                <path transform="translate(1533,1424)" d="m0 0h22l-1 3-13 2 9 5 5 6 2 5-1 11-4 11-6 8-8 7-6 2h-15l-6-3-5-8-2-7 1-14 5-13 8-9 8-4zm-1 8-6 4-5 8-4 12-1 5v8l2 5 4 3 7-1 7-6 4-8 4-13v-9l-8-8z" fill="#391572"/>
+                <path transform="translate(1435,1423)" d="m0 0h11l-1 4-21 6-10 6-6 8-3 8v11l2 4 5 2h8l7-4 3-8v-6h-11l1-5 3-3 10-1h8l-1 5-2 5-1 14-5 8-6 5-7 2h-13l-8-3-6-7-2-5v-17l7-14 9-9 10-5z" fill="#371370"/>
+                <path transform="translate(1585,1422)" d="m0 0h3l-1 4-6 12-3 11-2 12v15h7l3-3 4-13 4-17 7-14 7-6 7-1-5 13-5 24-4 13-6 8-5 3-4 1h-13l-6-4-4-6-2-10 1-13 3-10 7-10 8-7z" fill="#371370"/>
+                <path transform="translate(629,970)" d="m0 0 4 1 6 9 7 15 1 13-3 12-9 19-9 10-9 6-9 4-5-1v-9l5-5 5-2 2-4 8-7 5-11 2-7 1-10-3-14-3-9v-6z" fill="#211A6A"/>
+                <path transform="translate(250,995)" d="m0 0 4 2 1 5h2l2 7 3 4 5 16 4 8 2 6 8 15 5 5 2 4 1 4h2l1 3 3 1 1 3 13 13 6 3 2 2 8 2v2l10 3v-2l9-2 7-3h4l2-6 4-2 2-2 5 4v2l2 1-1 2h-2l-1 5-8 4h-7l1 3 2 2h-9v9l-9-1-9-6-1-3-10-2-2 2-2-4h-2l-1-5-4-2-7-8-3-5v-2l-4-1-3-3v-3l-3-1-2-5-5-7v-2h-2l-1-6-4-1-1-3v-4l-2 1-2-7 1-4-4-1-1-3h-2v-2h-2l-5-18-3-13z" fill="#74198C"/>
+                <path transform="translate(565,956)" d="m0 0 5 1 3 6-1 6-13 10-7 9-2 5v21l5 16-2 6-1 1h-7l-5-7-7-14v-22l10-19 8-10 10-7z" fill="#1E1969"/>
+                <path transform="translate(210,614)" d="m0 0 2 2-1 5 5 1 1 2v29l2 1-1 1 1 13-10 15-3 5-7 1-1-5-1-9 1-13 1-4-3-9-4-4-1-4 4-8 14-18z" fill="#751A8C"/>
+                <path transform="translate(1645,1422)" d="m0 0h8l8 3 5 4 3 6v6l-3 6-5 5-7 3-17 2-3 11-4 8-4 5-6 3h-8l2-5 5-12 7-25 7-14 4-4zm-2 7-4 3-3 19h8l10-5 3-4v-7l-5-5-2-1z" fill="#381371"/>
+                <path transform="translate(586,955)" d="m0 0h6l1 1v11l-3 16-5 22-3 20-3 24-3 4-13-1-3-1 1-5 8-7 1-4h-2l-1-5 6-22 4-11 7-21 2-9z" fill="#2B216F"/>
+                <path transform="translate(605,956)" d="m0 0 4 1 1 3-2 22-5 30-4 35-3 9-16-2v-3l4-4 3-7v-7l8-30 6-25 3-21z" fill="#281D6D"/>
+                <path transform="translate(542,1238)" d="m0 0 1 4v6l3 3 3 8 5 5 9 7 7 4 4 1 2 3 4 1v3l6-1 3 3h-7l-7-1-1-2-12-3-1-3-5-1v-2l-9-2-5-2-3-3-3-1-2-5-5-1-2-6-2-1 1-7 2-1 5 2v-6z" fill="#74198B"/>
+                <path transform="translate(452,1114)" d="m0 0 2 4 4 2 3 5 1 7 2 1 2 8 4 2v2l3-1 10 5 10 1 3 3-6 3-4 1h-11l-9-2-9-6-4-6-3-11v-11z" fill="#75198C"/>
+                <path transform="translate(494,1357)" d="m0 0 3 2 5 2v3h5l1 3 7 7v3l3 1 5 7 2 1v-2h2v2l2 1 15 1v1h-22l-15-8-6-7-4-12-5-2z" fill="#CD39A6"/>
+                <path transform="translate(450,1121)" d="m0 0h1v7h4v2h2l4 10 7 8 4 3 8 1v2h5l1 3h-11l-9-2-9-6-4-6-3-11z" fill="#882F90"/>
+                <path transform="translate(369,1191)" d="m0 0 1 3h3l1 4h3v3l4 2 4 4 5 2 1 2h2l1 3 4 2v2l4 1 1 2 4 1 5 4 3 1v2h3v3l-5-2-13-8-14-10-16-13-6-5 3-2z" fill="#CC38A5"/>
+                <path transform="translate(169,920)" d="m0 0 2 1v2l2 1v12l1 14-1 5 1 4-3 8-1 9h-1z" fill="#A12D95"/>
+                <path transform="translate(479,1319)" d="m0 0 9 1 10 3 1 4 3-1v3l-2 1v2l-3-1-4-1-7-1-6-6z" fill="#A12D95"/>
+                <path transform="translate(1541,1430)" d="m0 0 4 1 8 6 3 5-1 2-1-3-11-1-5-5v-3z" fill="#231B6B"/>
+                <path transform="translate(1533,1424)" d="m0 0h22l-1 3-3 1-14 1-4 1-3-4z" fill="#231B6B"/>
+                <path transform="translate(860,1258)" d="m0 0 2 1 3-1v3h4v2l2 1 1 5 6 4-1 5-7-6-11-12z" fill="#CC38A5"/>
+                <path transform="translate(204,900)" d="m0 0h2l1 5v11l-1 9-4 4 1-26z" fill="#6A328A"/>
+                <path transform="translate(187,808)" d="m0 0 5 2 1 6-3 6h-4l-1 4h-3l3-11z" fill="#862A8E"/>
+                <path transform="translate(545,1440)" d="m0 0h17l-1 4 1 2-18-1-2-3h3z" fill="#CD39A6"/>
+                <path transform="translate(392,1211)" d="m0 0 2 3 4 2v2l4 1 1 2 4 1 5 4 3 1v2h3v3l-5-2-13-8-9-6-1-4z" fill="#CD39A6"/>
+                <path transform="translate(553,1084)" d="m0 0h6l4 3v2l4 1 1 2 4 2v1l-9-1-5-2-1-4-3-1z" fill="#1F1869"/>
+                <path transform="translate(1292,1363)" d="m0 0 4 2 1 6h-12l2-7z" fill="#A02D95"/>
+                <path transform="translate(364,1074)" d="m0 0 3 4 5 10-1 4h-3l-4-4v-9l-1-4z" fill="#5F2583"/>
+                <path transform="translate(170,976)" d="m0 0 2 2 3 14v8l-1 7h-1l-3-27z" fill="#AA329A"/>
+                <path transform="translate(245,945)" d="m0 0 2 2 1 13h-2l2 9-1 6h-1l-1-7z" fill="#7C218E"/>
+                <path transform="translate(551,1317)" d="m0 0 6 2 9 9 1 4-3-1-5-6-3-2v-2l-5-2z" fill="#882C8F"/>
+                <path transform="translate(138,1008)" d="m0 0 2 2v12l-3 3-1-7 1-9z" fill="#80278B"/>
+                <path transform="translate(129,753)" d="m0 0 2 1-1 6h-2l1 4h2l-1 3-2-1v4h-4l3-11z" fill="#B82F9A"/>
+                <path transform="translate(253,1011)" d="m0 0 5 1 3 9-4-1-1 4z" fill="#8A2D90"/>
+                <path transform="translate(425,1236)" d="m0 0h5l6 4 4 2v3l-14-7z" fill="#CD39A6"/>
+                <path transform="translate(277,1077)" d="m0 0 5 5 2 4v5h-2l-6-13z" fill="#AC47A2"/>
+                <path transform="translate(765,1423)" d="m0 0 9 3v2l3 1-9-1-5-3z" fill="#AA3F9E"/>
+                <path transform="translate(1526,1329)" d="m0 0h20v1l-11 1-7 1-3-2z" fill="#9B2C93"/>
+                <path transform="translate(134,984)" d="m0 0h3l2 7-4 2-2-5z" fill="#87288D"/>
+                <path transform="translate(364,1074)" d="m0 0 3 4 3 6-1 2-4-1-2-10z" fill="#914099"/>
+                <path transform="translate(693,1437)" d="m0 0h10l4 2-10 2h-4z" fill="#BA309B"/>
+                <path transform="translate(452,1137)" d="m0 0 3 3v2l2 1v4h2v2l3 1-1 2-6-5-3-7z" fill="#A92F98"/>
+                <path transform="translate(183,825)" d="m0 0h2l1 3-2 6-4 1 2-9z" fill="#812994"/>
+                <path transform="translate(490,1264)" d="m0 0 5 1 7 3v2l-10-3-4-2z" fill="#BA309B"/>
+                <path transform="translate(123,1099)" d="m0 0h2l2 5v4h2v2h-2l-1 2-3-10z" fill="#CD39A6"/>
+                <path transform="translate(577,1095)" d="m0 0h11l-1 3h-8l-2-1z" fill="#22196A"/>
+                <path transform="translate(202,947)" d="m0 0h2l1 11-4-5v-5z" fill="#54187B"/>
+                <path transform="translate(132,1125)" d="m0 0 3 1v2h3l1 4h-3-2z" fill="#CD39A6"/>
+                <path transform="translate(193,1082)" d="m0 0h2v2h2v2h2l-2 7-2-3z" fill="#BA309C"/>
+                <path transform="translate(1626,1426)" d="m0 0h6l-3 5-3-1z" fill="#441E75"/>
+                </svg>
+                
+                    <h1 class="text-2xl font-bold text-center tracking-wide">Register To SIM</h1>
+                </h1>
+            
+            <p class="text-gray-100">
+                Use  your email to register
+            </p>
+            <form method="POST" action="{{ route('register') }}" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
+                @csrf
+                <div class="pb-2 pt-4">
+                    <x-input-label for="username" :value="__('Username')" />
+                    <input type="text" name="username" id="username" name="username" :value="old('username')" required autofocus autocomplete="username"  class="block w-full p-4 text-lg rounded-xl bg-black" placeholder="Gunakan nama asli tidak harus lengkap">
+                                    <x-input-error :messages="$errors->get('username')" class="mt-2" />
+
+                </div>
+                <div class="pb-2 pt-4">
+                    <x-input-label for="user_class" :value="__('Kelas')" />
+                    <input type="text" name="user_class" id="user_class" :value="old('user_class')" required autofocus autocomplete="username"  class="block w-full p-4 text-lg rounded-xl bg-black" placeholder="Contoh: PSIK 23D">
+                                    <x-input-error :messages="$errors->get('user_class')" class="mt-2" />
+
+                </div>
+                <div class="pb-2 pt-4">
+                    <x-input-label for="user_class" :value="__('Email')" />
+                    <input type="email" name="email" id="email" :value="old('email')" required autofocus autocomplete="username"  class="block w-full p-4 text-lg rounded-xl bg-black">
+                                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+
+                </div>
+                <div class="pb-2 pt-4">
+                    <x-input-label for="no_telp" :value="__('Nomor WhatsApp')" />
+                    <input type="number" name="no_telp" id="no_telp" :value="old('no_telp')" required autofocus autocomplete="username"  class="block w-full p-4 text-lg rounded-xl bg-black" placeholder="contoh: 081234567">
+                                    <x-input-error :messages="$errors->get('no_telp')" class="mt-2" />
+
+                </div>
+                <div class="pb-2 pt-4">
+                    <x-input-label for="password" :value="__('Password')" />
+                    <input class="block w-full p-4 text-lg rounded-xl bg-black" type="password" name="password" id="password"  required autocomplete="current-password" placeholder="gunakan minimal 8 karakter ">
+                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                </div>
+                <div class="pb-2 pt-4">
+                    <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+                    <input class="block w-full p-4 text-lg rounded-xl bg-black" type="password" name="password_confirmation" id="password_confirmation"  required autocomplete="new-password">
+                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                </div>
+                {{-- <div class="text-right text-gray-400 hover:underline hover:text-gray-100">
+                    <a href="#">Forgot your password?</a>
+                </div> --}}
+                <div class="px-4 pb-2 pt-4">
+                    <button type="submit" class="uppercase block w-full p-4 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none">sign Up</button>
+                </div>
+                <div class="register text-left">
+                    <a class="hover:text-purple-500 font-semibold" href="{{ route('login') }}">sudah punya akun?</a>
+                </div>
+                <div class="p-4 text-center right-0 left-0 flex justify-center space-x-4 mt-16 lg:hidden ">
+                    <a href="#">
+                        <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                    </a>
+                    <a href="#">
+                        <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                    </a>
+                    <a href="#">
+                        <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+</x-guest-layout>
