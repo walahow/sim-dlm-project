@@ -274,7 +274,15 @@ id="drawer-navigation"
   <ul
     class="pt-5 mt-5 space-y-2 border-t border-gray-200 dark:border-gray-700"
   >
-    
+    <li class="list-none mb-2">
+    <a href="{{ route('panduan.api') }}" class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-purple-500 dark:hover:bg-gray-700 group hover:text-white">
+        {{-- Ikon untuk API --}}
+        <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-white dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 1h3a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-3m-6 0H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h3m1 14-4-14m5 14 4-14"/>
+        </svg>
+        <span class="ml-3">Panduan API</span>
+    </a>
+    </li>
     <li>
       <a
         href="{{ route('about') }}"

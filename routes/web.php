@@ -72,7 +72,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post('/profile/update', [ProfileController::class, 'updateProfile'])->name('profile.updateProfile');
-
+    // ▼▼▼ TAMBAHKAN RUTE INI DI DALAM GRUP ▼▼▼
+    Route::get('/panduan-api', function () {
+        return view('panduan-api');
+    })->name('panduan.api');
 });
 Route::get('/tersedia', [tersedia::class, 'tersediaFilter'])->name('tersedia.tersediaFilter');
 Route::get('/dipakai', [tersedia::class, 'dipakaiFilter'])->name('dipakai.dipakaiFilter');
